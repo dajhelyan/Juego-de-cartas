@@ -62,8 +62,27 @@ div{
     }
     .col-md-3 {
         margin-right: 15px;
+        background: white;
     }
+    .fondo-inverso {
+        /* display: none; */
+    }
+    .fondo-reverso {
+        /* display: block; */
+    .fondo-r {
+        width: 200px;
+        height: 200px;
+    }
+}
+
     /* .img-as {
         position: absolute;
     } */
  }
+
+ .show {
+     display: block;
+ }
+.hide {
+    display: none;
+}

@@ -61,6 +61,25 @@ main .row {
 }
 main .col-md-3 {
   margin-right: 15px;
+  background: white;
+}
+main .fondo-inverso {
+  /* display: none; */
+}
+main .fondo-reverso {
+  /* display: block; */
+}
+main .fondo-reverso .fondo-r {
+  width: 200px;
+  height: 200px;
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
 }
 
 /*# sourceMappingURL=output.css.map */

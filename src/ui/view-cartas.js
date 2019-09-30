@@ -22,7 +22,21 @@ export const mesaDeJuego = () => {
     const divElement = document.createElement('main');
     divElement.innerHTML = mesaTmpl;
 
-  
+    const reverso = divElement.querySelectorAll('.fondo-reverso')
+    reverso.forEach(ele => {
+      ele.addEventListener('click', (e) => {
+        e.target.classList.remove('show')
+        e.target.classList.add('hide')
+        const parent = e.target.parentElement.parentElement
+        const inverso = parent.querySelector('.fondo-inverso img')
+        inverso.classList.remove('hide')
+        inverso.classList.add('show')
+      })
+    })
+    
+    
+
+    console.log(reverso, 'pp')
 
     return divElement;
 }

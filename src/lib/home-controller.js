@@ -25,9 +25,7 @@ const chocolateate = (lista) => {
 }
 
 export const cartasParaMostrar = () => {
-
-    /* const container = document.querySelector('#container');
-    const div = document.querySelector('.col-md-3') */
+//retorna una lista de string
 
     const newCartas = chocolateate(arrCartas);
     let fourCartas = newCartas.slice(0,4);
@@ -36,12 +34,16 @@ export const cartasParaMostrar = () => {
     
     const cartas = cartasALaMesa.map(ele => {
         const tmpl = `
-        <div class="col-md-3 col-sm-6 col-xs-12">
-            <figure>
-                <img src="././assets/animales (${ele}).jpg">
+        <div class="col-md-3 col-sm-6 col-xs-12 carta">
+            <figure class="fondo-inverso ">
+                <img class="hide" src="././assets/animales (${ele}).jpg">
+            </figure>
+            <figure class="fondo-reverso ">
+                <img class="fondo-r show" src="././assets/fondo-carta.jpg">
             </figure>
         </div>
         `
+        // Creando el elemento
         /* let img = document.createElement("img")
         img.setAttribute('src', `././assets/animales (${ele}).jpg`);
         const singleCarta = document.createElement('figure');
@@ -53,9 +55,8 @@ export const cartasParaMostrar = () => {
     return tmpl;
     })
     
-    console.log(cartas, 'jj');
-    return cartas;
-    /* printProducts(singleCarta, container, div); */
+/*     console.log(cartas, 'jj');
+ */    return cartas;
 }
 
 
@@ -65,15 +66,6 @@ export const cartasParaMostrar = () => {
 
 
 
-//console.log(printImg(cartasParaMostrar(arrCartas), 'kkkkk'))
-
-/* const printProducts = (products, container, productElemnt) => {
-
-    products.forEach(product => {
-      container.appendChild(productElemnt(product));
-    })
-  
-  } */
 
 
 
