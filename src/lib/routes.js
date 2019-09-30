@@ -11,6 +11,7 @@ export const changeView = (route) => {
         case '#/home': 
             { return root.appendChild(components.home()) };
         case '#/table':
+
             { return root.appendChild(components.table()) }
 
         default:

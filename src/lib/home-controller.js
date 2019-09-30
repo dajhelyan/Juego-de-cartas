@@ -1,6 +1,7 @@
+
 export const changeHash = (hash) => { window.location.hash = hash };
 
-const arrCartas = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+export const arrCartas = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 
 // retorna un numero aleatorio entre inicio y fin
 const numeroAleatorio = (inicio, fin) => {
@@ -23,20 +24,56 @@ const chocolateate = (lista) => {
     return nuevaLista;
 }
 
-const cartasParaMostrar = (arr) => {
-    const newCartas = chocolateate(arr);
+export const cartasParaMostrar = () => {
+
+    /* const container = document.querySelector('#container');
+    const div = document.querySelector('.col-md-3') */
+
+    const newCartas = chocolateate(arrCartas);
     let fourCartas = newCartas.slice(0,4);
     const baraja = [...fourCartas, ...fourCartas];
     const cartasALaMesa = chocolateate(baraja);
-    return cartasALaMesa;
-}
-
-console.log(cartasParaMostrar(arrCartas))
-
-const printImg = () => {
     
+    const cartas = cartasALaMesa.map(ele => {
+        const tmpl = `
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <figure>
+                <img src="././assets/animales (${ele}).jpg">
+            </figure>
+        </div>
+        `
+        /* let img = document.createElement("img")
+        img.setAttribute('src', `././assets/animales (${ele}).jpg`);
+        const singleCarta = document.createElement('figure');
+        singleCarta.appendChild(img) */
+    /*     console.log(tmpl, 'kkkk');
+    */    
+        /* singleCarta.innerHTML = tmpl; */
+
+    return tmpl;
+    })
+    
+    console.log(cartas, 'jj');
+    return cartas;
+    /* printProducts(singleCarta, container, div); */
 }
 
+
+
+
+
+
+
+
+//console.log(printImg(cartasParaMostrar(arrCartas), 'kkkkk'))
+
+/* const printProducts = (products, container, productElemnt) => {
+
+    products.forEach(product => {
+      container.appendChild(productElemnt(product));
+    })
+  
+  } */
 
 
 

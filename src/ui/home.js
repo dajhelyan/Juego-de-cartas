@@ -12,6 +12,8 @@ export const homeView = () => {
     const tableStart = divElement.querySelector('#table-start');
     tableStart.addEventListener('click', () => {
         changeHash('#/table');
+        
+        
     })
 
     return divElement;
