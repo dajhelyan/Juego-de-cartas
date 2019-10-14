@@ -2,6 +2,7 @@
  */
 import { cartasShow, newData, clickCarta } from '../lib/home-controller.js';
 
+
 let cartasEnLaMesa;
 
 export const mesaDeJuego = () => {
@@ -26,7 +27,19 @@ export const mesaDeJuego = () => {
 }
 
 
+let numeroDeToques = 0;
 
+export const incrementarToques = () => {
+  numeroDeToques++;
+  document.getElementById('toques').innerHTML = numeroDeToques;
+}
+
+let numeroDePuntos = 0;
+
+export const incrementarPuntos = () => {
+  numeroDePuntos++;
+  document.getElementById('puntos').innerHTML = numeroDePuntos;
+}
 
 
 

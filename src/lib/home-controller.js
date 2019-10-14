@@ -1,3 +1,4 @@
+import { incrementarToques, incrementarPuntos } from '../ui/view-cartas.js'
 
 export const changeHash = (hash) => { window.location.hash = hash };
 
@@ -101,6 +102,20 @@ const hideAgain = (arr) => {
     toggleCarta(carta));
 } 
 
+/* let numeroDeToques = 0;
+
+const incrementarToques = () => {
+  numeroDeToques++;
+  document.getElementById('toques').innerHTML = numeroDeToques;
+}
+
+let numeroDePuntos = 0;
+
+const incrementarPuntos = () => {
+  numeroDePuntos++;
+  document.getElementById('puntos').innerHTML = numeroDePuntos;
+} */
+
 export const clickCarta = (e) => {
     
     // identificar la carta
@@ -112,10 +127,13 @@ export const clickCarta = (e) => {
     //agregando    
     addCardSelect(carta)
 
+    incrementarToques()
+
     if (cardSelect.length === 2) {
         const cartasIguales = repeatCards();
         if (cartasIguales) {
             setTimeout(() => {
+                incrementarPuntos()
                 disappearCouple(cardSelect);
                 cardSelect = [];
                 // console.log(cardSelect, 'ooo');
