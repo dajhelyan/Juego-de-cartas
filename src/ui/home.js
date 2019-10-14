@@ -2,7 +2,10 @@ import { changeHash } from '../lib/home-controller.js';
  
 export const homeView = () => {
     const homeTmpl = `
-    <img class="img-fondo" src="././assets/fondo-1.jpg">
+    <img class="img-fondo" src="././assets/img-3.jpg">
+    <div>
+        <img src="././assets/letrero.png">
+    </div>
     <button type="button" id="table-start" class="btn-start">¡A jugar!</button>
     `
 
@@ -12,7 +15,6 @@ export const homeView = () => {
     const tableStart = divElement.querySelector('#table-start');
     tableStart.addEventListener('click', () => {
         changeHash('#/table');
-        
         
     })
 

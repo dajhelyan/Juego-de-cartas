@@ -33,6 +33,7 @@ body {
 } */
 div .img-fondo {
   width: 100%;
+  height: 100vh;
 }
 div .btn-start {
   position: absolute;
@@ -46,11 +47,17 @@ div .btn-start {
   font-size: 20px;
 }
 
-main {
-  /* .img-as {
-      position: absolute;
-  } */
+header {
+  display: flex !important;
+  justify-content: space-around;
 }
+header p {
+  border-radius: 7px;
+  color: wheat;
+  font-size: 40px;
+  background: white;
+}
+
 main .fondo-mesa {
   position: fixed;
   width: 100%;
@@ -58,20 +65,15 @@ main .fondo-mesa {
 }
 main .row {
   padding-top: 108px;
+  position: relative;
 }
 main .col-md-3 {
   margin-right: 15px;
   background: white;
 }
-main .fondo-inverso {
-  /* display: none; */
-}
-main .fondo-reverso {
-  /* display: block; */
-}
-main .fondo-reverso .fondo-r {
-  width: 200px;
-  height: 200px;
+main div {
+  border: hidden !important;
+  border-radius: 15px;
 }
 
 .show {
@@ -79,6 +81,38 @@ main .fondo-reverso .fondo-r {
 }
 
 .hide {
+  display: none;
+}
+
+.img-hide {
+  visibility: hidden;
+}
+
+.carta {
+  /* mostrar valor, ocultar reverso */
+  /* ocultar valor, mostrar reverso */
+  /* ocultar valor, mostrar reverso */
+}
+.carta.mostrada .fondo-inverso {
+  display: block;
+}
+.carta.mostrada .fondo-reverso {
+  display: none;
+}
+.carta.ocultada .fondo-inverso {
+  display: none;
+}
+.carta.ocultada .fondo-reverso {
+  display: block;
+}
+.carta.en-blanco {
+  width: 200px;
+  height: 200px;
+}
+.carta.en-blanco .fondo-inverso {
+  display: none;
+}
+.carta.en-blanco .fondo-reverso {
   display: none;
 }
 

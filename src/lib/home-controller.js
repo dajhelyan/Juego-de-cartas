@@ -2,75 +2,7 @@
 export const changeHash = (hash) => { window.location.hash = hash };
 
 export const arrCartas = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
-/* export let cartasSelect = []
- */
-
-export let arrcartasId = [];
-export let arrImgInverso = [];
-export let arrImgReverso = [];
-
-// refactorizar
-export const ocultarCartasIguales = (arrImg) => {
-    arrImg[0].classList.remove('show')
-    arrImg[0].classList.add('img-hide')
-    arrImg[1].classList.remove('show')
-    arrImg[1].classList.add('img-hide')
-}
-
-export const ocultarCartas = (arrImg) => {
-    arrImg[0].classList.remove('hide')
-    arrImg[0].classList.add('show')
-    arrImg[1].classList.remove('hide')
-    arrImg[1].classList.add('show')
-}
-
-export const voltearCartas = (imgReverso, imgInverso, idCartas) => {
-    if (arrcartasId.length === 0) {
-        arrImgReverso.push(imgReverso)
-        arrcartasId.push(idCartas);
-        arrImgInverso.push(imgReverso);
-
-        imgInverso.classList.remove('hide')
-        imgInverso.classList.add('show')
-        console.log(arrcartasId, 'ppooooiii');
-        // capturando valor de 2da carta que ingresa
-    } else if (arrcartasId.length === 1) {
-        arrImgReverso.push(imgReverso)
-        arrcartasId.push(idCartas);
-        arrImgInverso.push(imgInverso);
-        
-        console.log(imgInverso, 'inverzo');
-        imgInverso.classList.remove('hide')
-        imgInverso.classList.add('show')
-        // compara los elementos del array
-        if (arrcartasId[0] === arrcartasId[1]) {
-            if (arrImgInverso.length === 2) {
-                console.log(ele);
-                // Ocultando imagenes en menos de un sg
-                setTimeout(() => {
-                    ocultarCartasIguales(imgInverso)
-                }, 700);
-            }
-
-            arrcartasId = 0;
-            arrImgInverso = 0;
-
-        } else { // ocultar img si no son iguales
-
-
-            if (arrImgReverso.length === 2) {
-                setTimeout(() => {
-                    console.log('no son iguales');
-                    
-                }, 700);
-            }
-
-
-            console.log('no cumpliiiiii');
-
-        }
-    }
-}
+export let cardSelect = [];
 
 // retorna un numero aleatorio entre inicio y fin
 const numeroAleatorio = (inicio, fin) => {
@@ -92,41 +24,6 @@ const chocolateate = (lista) => {
         [nuevaLista[i], nuevaLista[indiceAleatorio]] = [nuevaLista[indiceAleatorio], nuevaLista[i]]
     }
     return nuevaLista;
-}
-
-export const cartasParaMostrar = () => {
-    //retorna una lista de string
-
-    const newCartas = chocolateate(arrCartas);
-    let fourCartas = newCartas.slice(0, 4);
-    const baraja = [...fourCartas, ...fourCartas];
-    const cartasALaMesa = chocolateate(baraja);
-
-    const cartas = cartasALaMesa.map(ele => {
-        const tmpl = `
-        <div class="col-md-3 col-sm-6 col-xs-12 carta">
-            <figure class="fondo-inverso ">
-                <img class="hide"  src="././assets/animales (${ele}).jpg">
-            </figure>
-            <figure class="fondo-reverso ">
-                <img class="show" src="././assets/fondo-carta.jpg">
-            </figure>
-        </div>
-        `
-        // Creando el elemento
-        /* let img = document.createElement("img")
-        img.setAttribute('src', `././assets/animales (${ele}).jpg`);
-        const singleCarta = document.createElement('figure');
-        singleCarta.appendChild(img) */
-        /*     console.log(tmpl, 'kkkk');
-        */
-        /* singleCarta.innerHTML = tmpl; */
-
-        return tmpl;
-    })
-
-/*     console.log(cartas, 'jj');
- */    return cartas;
 }
 
 export const newData = () => {
@@ -166,6 +63,21 @@ export const cartasShow = (cartasALaMesa) => {
     return divParent;
 }
 
+// buscar carta
+const searchCard = (e) => {
+    console.log(searchCard);
+    return e.target.parentElement.parentElement
+}
+
+
+
+export const clickCarta = (e) => {
+     // identificar la carta
+    let carta = searchCard(e);
+
+    console.log(carta, 'jjjjj');
+    
+}
 
 
 

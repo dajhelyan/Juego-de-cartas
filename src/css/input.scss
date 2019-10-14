@@ -35,7 +35,7 @@ body{
 div{
     .img-fondo {
         width: 100%;
-        
+        height: 100vh;
     }
     .btn-start {
         position: absolute;
@@ -50,6 +50,17 @@ div{
     }
 }
 
+header{
+    display: flex!important;
+    justify-content: space-around;
+    p {
+        border-radius: 7px;
+        color: wheat;
+        font-size: 40px;
+        background: white;
+    }
+}
+
 // table 
  main {
      .fondo-mesa {
@@ -59,30 +70,61 @@ div{
     }
     .row {
         padding-top: 108px;
+        position: relative;
     }
     .col-md-3 {
         margin-right: 15px;
         background: white;
     }
-    .fondo-inverso {
-        /* display: none; */
-    }
-    .fondo-reverso {
-        /* display: block; */
-    .fondo-r {
-        width: 200px;
-        height: 200px;
+    div{
+        border: hidden!important;
+        border-radius: 15px;
     }
 }
 
-    /* .img-as {
-        position: absolute;
-    } */
- }
-
- .show {
+.show {
      display: block;
  }
 .hide {
     display: none;
+}
+
+.img-hide {
+    visibility: hidden;
+}
+
+// refactorizando funciones que agregan y quitan clases a los ele
+.carta {
+    /* mostrar valor, ocultar reverso */
+    &.mostrada {
+        .fondo-inverso {
+            display: block;
+        }
+        .fondo-reverso {
+            display: none;
+        }
+    }
+
+    /* ocultar valor, mostrar reverso */
+    &.ocultada {
+        .fondo-inverso {
+            display: none;
+        }
+        .fondo-reverso {
+            display: block;
+        }
+    }
+
+    /* ocultar valor, mostrar reverso */
+    &.en-blanco {
+        width: 200px;
+        height: 200px;
+
+        .fondo-inverso {
+            display: none;
+        }
+        .fondo-reverso {
+            display: none;
+        }
+    }
 }
