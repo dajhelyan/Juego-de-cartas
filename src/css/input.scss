@@ -83,8 +83,9 @@ header{
 }
 
 .show {
-     display: block;
- }
+    display: block;
+}
+
 .hide {
     display: none;
 }
@@ -100,6 +101,7 @@ header{
         .fondo-inverso {
             display: block;
         }
+
         .fondo-reverso {
             display: none;
         }
@@ -110,9 +112,10 @@ header{
         .fondo-inverso {
             display: none;
         }
+
         .fondo-reverso {
             display: block;
-        }
+        }   
     }
 
     /* ocultar valor, mostrar reverso */

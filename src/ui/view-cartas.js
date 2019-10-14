@@ -21,8 +21,12 @@ export const mesaDeJuego = () => {
   reverso.forEach(ele => {
     ele.addEventListener('click', clickCarta)
   })
-
-
+  
   return divElement;
 }
+
+
+
+
+
 

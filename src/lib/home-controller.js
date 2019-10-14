@@ -47,36 +47,65 @@ export const cartasShow = (cartasALaMesa) => {
     divParent.appendChild(header)
 
     cartasALaMesa.forEach(ele => {
-        let div = document.createElement("div")
-        div.classList.add('col-md-3', 'col-sm-6', 'col-xs-12', 'carta');
-        div.innerHTML = `
+        let cartaDiv = document.createElement("div")
+        cartaDiv.classList.add('col-md-3', 'col-sm-6', 'col-xs-12', 'carta', 'ocultada');
+        cartaDiv.innerHTML = `
             <figure class="fondo-inverso ">
-                <img class="hide img-fluid" id="carta-${ele}" src="././assets/animales (${ele}).jpg">
+                <img class="img-fluid" id="carta-${ele}" src="././assets/animales (${ele}).jpg">
             </figure>
             <figure class="fondo-reverso ">
-                <img class="show  img-fluid" id="reverso-${ele}" src="././assets/fondo-carta.jpg">
+                <img class="img-fluid" id="reverso-${ele}" src="././assets/fondo-carta.jpg">
             </figure>
         `
-
-        divParent.appendChild(div);
+        cartaDiv.setAttribute('valor-carta', ele)
+        divParent.appendChild(cartaDiv);
     });
     return divParent;
 }
 
 // buscar carta
 const searchCard = (e) => {
-    console.log(searchCard);
     return e.target.parentElement.parentElement
 }
 
+// cambiando estado a mostrada
+const toggleCarta = (carta) => {
+    carta.classList.toggle('ocultada')
+    carta.classList.toggle('mostrada')
+}
+
+// agregando al array carta(ele) select
+const addCardSelect = (carta) => {
+    cardSelect.push(carta);
+    console.log(cardSelect, 'pooo');
+}
+
+// comparando elementos del array
+const repeatCards = () => {
+    const valLastCard = cartasSeleccionadas[0].getAttribute('valor-carta');
+    const valCurrentCard = cartasSeleccionadas[1].getAttribute('valor-carta');
+    return valLastCard === valCurrentCard;
+  }
 
 
 export const clickCarta = (e) => {
-     // identificar la carta
+    
+    // identificar la carta
     let carta = searchCard(e);
 
-    console.log(carta, 'jjjjj');
-    
+    // voltear carta
+    toggleCarta(carta)
+
+    //agregando    
+    addCardSelect(carta)
+
+    if (arrCardSelect.length === 2) {
+        const cartasIguales = repeatCards();
+        if (cartasIguales) {
+            
+        }
+    }
+
 }
 
 
