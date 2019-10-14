@@ -27,7 +27,7 @@ export const mesaDeJuego = () => {
 }
 
 
-let numeroDeToques = 0;
+/* let numeroDeToques = 0;
 
 export const incrementarToques = () => {
   numeroDeToques++;
@@ -43,3 +43,4 @@ export const incrementarPuntos = () => {
 
 
 
+ */

@@ -1,5 +1,5 @@
-import { incrementarToques, incrementarPuntos } from '../ui/view-cartas.js'
-
+/* import { incrementarToques, incrementarPuntos } from '../ui/view-cartas.js'
+ */
 export const changeHash = (hash) => { window.location.hash = hash };
 
 export const arrCartas = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
