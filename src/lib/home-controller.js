@@ -127,13 +127,11 @@ export const clickCarta = (e) => {
     //agregando    
     addCardSelect(carta)
 
-    incrementarToques()
 
     if (cardSelect.length === 2) {
         const cartasIguales = repeatCards();
         if (cartasIguales) {
             setTimeout(() => {
-                incrementarPuntos()
                 disappearCouple(cardSelect);
                 cardSelect = [];
                 // console.log(cardSelect, 'ooo');
