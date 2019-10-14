@@ -82,10 +82,19 @@ const addCardSelect = (carta) => {
 
 // comparando elementos del array
 const repeatCards = () => {
-    const valLastCard = cartasSeleccionadas[0].getAttribute('valor-carta');
-    const valCurrentCard = cartasSeleccionadas[1].getAttribute('valor-carta');
+    const valLastCard = cardSelect[0].getAttribute('valor-carta');
+    const valCurrentCard = cardSelect[1].getAttribute('valor-carta');
     return valLastCard === valCurrentCard;
-  }
+}
+
+// desapareciendo par de cartas
+const disappearCouple = (cardSelect) => {
+    cardSelect.forEach((carta) => {
+        carta.classList.remove('mostrada');
+        carta.classList.add('en-blanco');
+      });
+      cardSelect = [];
+}
 
 
 export const clickCarta = (e) => {
@@ -99,10 +108,12 @@ export const clickCarta = (e) => {
     //agregando    
     addCardSelect(carta)
 
-    if (arrCardSelect.length === 2) {
+    if (cardSelect.length === 2) {
         const cartasIguales = repeatCards();
         if (cartasIguales) {
-            
+            setTimeout(() => {
+                disappearCouple(cardSelect);
+            }, 1000);
         }
     }
 
