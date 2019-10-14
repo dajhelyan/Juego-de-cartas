@@ -84,18 +84,22 @@ const addCardSelect = (carta) => {
 const repeatCards = () => {
     const valLastCard = cardSelect[0].getAttribute('valor-carta');
     const valCurrentCard = cardSelect[1].getAttribute('valor-carta');
-    return valLastCard === valCurrentCard;
+    return valLastCard == valCurrentCard;
 }
 
 // desapareciendo par de cartas
-const disappearCouple = (cardSelect) => {
-    cardSelect.forEach((carta) => {
+const disappearCouple = (arr) => {
+    arr.forEach((carta) => {
         carta.classList.remove('mostrada');
         carta.classList.add('en-blanco');
       });
-      cardSelect = [];
+    
 }
 
+const hideAgain = (arr) => {
+    arr.forEach((carta) => 
+    toggleCarta(carta));
+} 
 
 export const clickCarta = (e) => {
     
@@ -113,7 +117,17 @@ export const clickCarta = (e) => {
         if (cartasIguales) {
             setTimeout(() => {
                 disappearCouple(cardSelect);
+                cardSelect = [];
+                // console.log(cardSelect, 'ooo');
             }, 1000);
+        }else {
+            setTimeout(() => {
+                hideAgain(cardSelect);
+                cardSelect = [];
+                // console.log(cardSelect, 'ooiii');
+
+            }, 1000);
+            
         }
     }
 
