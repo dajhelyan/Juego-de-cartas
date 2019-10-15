@@ -1,5 +1,3 @@
-/* import { changeHash } from '../lib/home-controller.js';
- */
 import { cartasShow, newData, clickCarta } from '../lib/home-controller.js';
 
 
@@ -26,21 +24,21 @@ export const mesaDeJuego = () => {
   return divElement;
 }
 
+export const modalFinish = (puntos) => {
+  const divModal = document.createElement("div");
+  divModal.classList.add('modal')
+  const tmpl = `
+  <div class="modal-content">
+    <h1>¡Ganaste!</h1>
+    <h4>Puntos:<span>${puntos}</span></h4>
+    <h4>Toques:<span>${puntos}</span></h4>
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Volver a jugar</a>
+    <a href="#/home" class="modal-close waves-effect waves-green btn-flat">Inicio</a>
+  </div> 
+  `
+  divModal.innerHTML = tmpl;
 
-/* let numeroDeToques = 0;
-
-export const incrementarToques = () => {
-  numeroDeToques++;
-  document.getElementById('toques').innerHTML = numeroDeToques;
+  return divModal;
 }
-
-let numeroDePuntos = 0;
-
-export const incrementarPuntos = () => {
-  numeroDePuntos++;
-  document.getElementById('puntos').innerHTML = numeroDePuntos;
-}
-
-
-
- */

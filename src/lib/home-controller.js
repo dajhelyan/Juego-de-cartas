@@ -1,9 +1,10 @@
-/* import { incrementarToques, incrementarPuntos } from '../ui/view-cartas.js'
- */
 export const changeHash = (hash) => { window.location.hash = hash };
 
 export const arrCartas = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 export let cardSelect = [];
+
+let toques = 0;
+let puntos = 0;
 
 // retorna un numero aleatorio entre inicio y fin
 const numeroAleatorio = (inicio, fin) => {
@@ -42,8 +43,8 @@ export const cartasShow = (cartasALaMesa) => {
     divParent.classList.add('row');
 
     header.innerHTML = `
-    <p>Toques: </p>
-    <p>Puntos: </p>
+    <p>Toques: <span id="toques"></span></p>
+    <p>Puntos: <span id="puntos"></span></p>
     `
     divParent.appendChild(header)
 
@@ -85,7 +86,7 @@ const addCardSelect = (carta) => {
 const repeatCards = () => {
     const valLastCard = cardSelect[0].getAttribute('valor-carta');
     const valCurrentCard = cardSelect[1].getAttribute('valor-carta');
-    return valLastCard == valCurrentCard;
+    return valLastCard === valCurrentCard;
 }
 
 // desapareciendo par de cartas
@@ -101,20 +102,24 @@ const hideAgain = (arr) => {
     arr.forEach((carta) => 
     toggleCarta(carta));
 } 
-
-/* let numeroDeToques = 0;
-
-const incrementarToques = () => {
-  numeroDeToques++;
-  document.getElementById('toques').innerHTML = numeroDeToques;
+// recibe el elmento y el objeto?
+const incrementToques = () => {
+    const span = document.querySelector('#toques')
+    let acum = toques++;
+    acum++;
+    console.log(acum, 'oooiiioioo');
+    span.textContent = acum;
 }
 
-let numeroDePuntos = 0;
+const incrementPuntos = () => {
+    const span = document.querySelector('#puntos')
+    let acum = puntos++;
+    acum++;
+    console.log(acum, 'oooiiioioo');
+    span.textContent = acum;
+}
 
-const incrementarPuntos = () => {
-  numeroDePuntos++;
-  document.getElementById('puntos').innerHTML = numeroDePuntos;
-} */
+
 
 export const clickCarta = (e) => {
     
@@ -127,13 +132,16 @@ export const clickCarta = (e) => {
     //agregando    
     addCardSelect(carta)
 
+    incrementToques()
     
-
     if (cardSelect.length === 2) {
         const cartasIguales = repeatCards();
+        console.log(cartasIguales, 'yyyyyy');
+        
         if (cartasIguales) {
+            
             setTimeout(() => {
-                
+                incrementPuntos()
                 disappearCouple(cardSelect);
                 cardSelect = [];
                 // console.log(cardSelect, 'ooo');
