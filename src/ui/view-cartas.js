@@ -1,46 +1,50 @@
-/* import { changeHash } from '../lib/home-controller.js';
- */
-import { cartasShow, newData, clickCarta } from '../lib/home-controller.js';
-
+import { newData, clickCarta } from "../lib/home-controller.js";
 
 let cartasEnLaMesa;
 
 export const mesaDeJuego = () => {
-  const divElement = document.createElement('main');
-  divElement.innerHTML = `
-    <img class="fondo-mesa" src="././assets/fondo-selva.jpg">
-    <div id="container" class="container"></div>
-    `
+  const secElement = document.createElement("section");
+  secElement.classList.add("game-table");
+  secElement.innerHTML = `
+    <header>
+      <h3>Toques:<span class="touch"></span></h3>
+      <h3>Puntos:<span class="point"></span></h3>
+    </header>
+    <seccion id="card-table" class="h-100"></seccion>
+    `;
 
-  const container = divElement.querySelector('div');
+  const container = secElement.querySelector("#card-table");
 
   cartasEnLaMesa = cartasShow(newData());
-  container.appendChild(cartasEnLaMesa)
+  container.appendChild(cartasEnLaMesa);
   /* console.log(cartasShow(newData()), 'kkk') */
-  
-  const reverso = divElement.querySelectorAll('.fondo-reverso img')
-  reverso.forEach(ele => {
-    ele.addEventListener('click', clickCarta)
-  })
-  
-  return divElement;
-}
 
+  const reverso = secElement.querySelectorAll(".fondo-reverso img");
+  reverso.forEach((ele) => {
+    ele.addEventListener("click", clickCarta);
+  });
 
-/* let numeroDeToques = 0;
+  return secElement;
+};
 
-export const incrementarToques = () => {
-  numeroDeToques++;
-  document.getElementById('toques').innerHTML = numeroDeToques;
-}
+export const cartasShow = (cartasALaMesa) => {
+  let cardContainer = document.createElement("div");
+  cardContainer.classList.add("card-grid");
 
-let numeroDePuntos = 0;
-
-export const incrementarPuntos = () => {
-  numeroDePuntos++;
-  document.getElementById('puntos').innerHTML = numeroDePuntos;
-}
-
-
-
- */
+  cartasALaMesa.forEach((ele) => {
+    let cartaDiv = document.createElement("div");
+    cartaDiv.classList.add("card-style", "carta", "ocultada");
+    cartaDiv.innerHTML = `
+      <figure class="fondo-inverso card-style">
+          <img class="card-style" id="carta-${ele}" src="././assets/animales (${ele}).jpg">
+      </figure>
+      <figure class="fondo-reverso card-style">
+          <img class="card-style" id="reverso-${ele}" src="././assets/fondo-carta.jpg">
+      </figure>
+    `
+    ;
+    cartaDiv.setAttribute("valor-carta", ele);
+    cardContainer.appendChild(cartaDiv);
+  });
+  return cardContainer;
+};
